@@ -11,7 +11,7 @@ NOTE: For now it does not provide server side rendering. If heavily requested, t
 Install the application globally
 
 ```
-$ npm install -g tiny-react-spa
+$ npm install --global tiny-react-spa
 ```
 
 ## Usage
@@ -25,7 +25,7 @@ $ tiny-react-spa [project-name]
 Enter the newly created project and install all dependencies
 
 ```
-$ cs [project-name] && npm install
+$ cd [project-name] && npm install
 ```
 
 Once dependencies are installed, you are ready with a functionally working single page app using React, Redux and React Router.
