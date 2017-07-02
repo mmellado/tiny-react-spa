@@ -92,7 +92,7 @@ fse.readFile(SCRIPT_ROOT + '/package.json', 'utf8', function(err, data) {
       // Create and copy the blank project to the new folder
       ncp(contentFolder, './' + PROJECT_NAME, function (err) {
         if (err) {
-          console.error(err);
+          console.error('tiny-react-spa: Error: ' + err);
           process.exit(0);
         }
 
@@ -100,7 +100,7 @@ fse.readFile(SCRIPT_ROOT + '/package.json', 'utf8', function(err, data) {
         fse.outputFile('./' + PROJECT_NAME + '/package.json', JSON.stringify(packageJSON, null, 2),
           function (err) {
             if (err) {
-              console.error(err);
+              console.error('tiny-react-spa: Error: ' + err);
               process.exit(0);
             }
 
