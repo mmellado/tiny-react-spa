@@ -122,7 +122,7 @@ fse.readFile(SCRIPT_ROOT + '/package.json', 'utf8', function(err, data) {
                 }
 
                 console.log('The project ' + PROJECT_NAME + ' has been created');
-                console.log('Install the dependencies and get goind by running the following command:');
+                console.log('Install the dependencies and get going by running the following command:');
                 console.log('cd ' + PROJECT_NAME + ' && npm install && npm start');
               });
             });
