@@ -104,7 +104,28 @@ fse.readFile(SCRIPT_ROOT + '/package.json', 'utf8', function(err, data) {
               process.exit(0);
             }
 
-            console.log("Your project has been created!");
+            // Get the project's layout file
+            fse.readFile('./' + PROJECT_NAME + '/src/containers/Layout/index.js', 'utf8', function (err,data) {
+              if (err) {
+                console.error('tiny-react-spa: Error: ' + err);
+                process.exit(0);
+              }
+
+              // Replace thee version with the current active version
+              var result = data.replace(/v0\.0\.0/g, 'v' + SCRIPT_VERSION);
+
+              // Rewrite the file
+              fse.outputFile('./' + PROJECT_NAME + '/src/containers/Layout/index.js', result, 'utf8', function (err) {
+                if (err) {
+                  console.error('tiny-react-spa: Error: ' + err);
+                  process.exit(0);
+                }
+
+                console.log('The project ' + PROJECT_NAME + ' has been created');
+                console.log('Install the dependencies and get goind by running the following command:');
+                console.log('cd ' + PROJECT_NAME + ' && npm install && npm start');
+              });
+            });
         });
       });
     }
