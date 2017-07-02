@@ -3,18 +3,8 @@
 var fse = require('fs-extra');
 var ncp = require('ncp');
 var ArgumentParser = require('argparse').ArgumentParser;
-
-var parser = new ArgumentParser({
-  version: '1.0.0',
-  addHelp: true,
-  description: 'React Single Page App generator with a more traditional approach to static assets'
-});
-
-parser.addArgument('project-name', {
-  help: 'The new project\'s name'
-});
-
-var args = parser.parseArgs();
+var SCRIPT_ROOT = __dirname + '/..';
+var SCRIPT_VERSION = '';
 
 var packageJSON = {
   "name": "",
@@ -61,37 +51,62 @@ var packageJSON = {
     "lint": "eslint src",
     "test": "npm run lint && jest"
   }
-}
+};
 
-if (!args['project-name']) {
-  console.dir(args);
-} else {
-  const PROJECT_NAME = args['project-name'];
-
-  if (fse.existsSync(PROJECT_NAME)){
-    console.error('tiny-react-spa: Error: A folder with this name already exists. Please pick another one');
+// Get script version
+fse.readFile(SCRIPT_ROOT + '/package.json', 'utf8', function(err, data) {
+  if (err) {
+    console.error('tiny-react-spa: Error: There was a problem fetching the script\'s version. Please file an issue in the project\'s repository.');
     process.exit(0);
-  } else {
-    packageJSON.name = PROJECT_NAME;
-
-    var contentFolder = __dirname + '/../out';
-    ncp(contentFolder, './' + PROJECT_NAME, function (err) {
-      if (err) {
-        console.error(err);
-        process.exit(0);
-      }
-
-      fse.outputFile('./' + PROJECT_NAME + '/package.json', JSON.stringify(packageJSON, null, 2),
-        function (err) {
-          if (err) {
-            console.log('tres')
-            console.error(err);
-            process.exit(0);
-          }
-
-          console.log("Your project has been created!");
-      });
-    });
   }
 
-}
+  SCRIPT_VERSION = JSON.parse(data).version;
+
+  var parser = new ArgumentParser({
+    version: SCRIPT_VERSION,
+    addHelp: true,
+    description: 'React Single Page App generator with a more traditional approach to static assets'
+  });
+
+  parser.addArgument('project-name', {
+    help: 'The new project\'s name'
+  });
+
+  var args = parser.parseArgs();
+
+  // Check if project name was passed
+  if (!args['project-name']) {
+    console.dir(args);
+  } else {
+    const PROJECT_NAME = args['project-name'];
+
+    // Make sure no folders with the same name already exists
+    if (fse.existsSync(PROJECT_NAME)){
+      console.error('tiny-react-spa: Error: A folder with this name already exists. Please pick another one');
+      process.exit(0);
+    } else {
+      packageJSON.name = PROJECT_NAME;
+
+      var contentFolder = SCRIPT_ROOT + '/out';
+
+      // Create and copy the blank project to the new folder
+      ncp(contentFolder, './' + PROJECT_NAME, function (err) {
+        if (err) {
+          console.error(err);
+          process.exit(0);
+        }
+
+        // Add package.json to the new project
+        fse.outputFile('./' + PROJECT_NAME + '/package.json', JSON.stringify(packageJSON, null, 2),
+          function (err) {
+            if (err) {
+              console.error(err);
+              process.exit(0);
+            }
+
+            console.log("Your project has been created!");
+        });
+      });
+    }
+  }
+});
