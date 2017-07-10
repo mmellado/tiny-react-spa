@@ -21,7 +21,7 @@ class Layout extends Component {
         <div id="header" className="layout__header">
           <div className="page-wrapper">
             <h1 className="logo">
-              <img src="/static/img/logo.svg" width="36" height="36" />
+              <img src="./static/img/logo.svg" width="36" height="36" />
               <Link to="/">Tiny React SPA</Link>
             </h1>
             <nav id="menu">
