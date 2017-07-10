@@ -45,7 +45,7 @@ var packageJSON = {
     "webpack-dev-server": "^2.5.0"
   },
   "scripts": {
-    "start": "npm run clean && webpack && webpack-dev-server --hot --inline --open --content-base dist",
+    "start": "npm run clean && webpack && cross-env=development webpack-dev-server --hot --inline --open --content-base dist",
     "build": "npm run clean && cross-env NODE_ENV=production webpack",
     "clean": "rimraf dist",
     "lint": "eslint src",

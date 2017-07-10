@@ -12,7 +12,15 @@ var webpackPlugins = [
 ];
 
 if (isProduction) {
+  // Production webpack plugins
   webpackPlugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }));
+  webpackPlugins.push(new webpack.DefinePlugin({
+    'process.env': {
+      NODE_ENV: JSON.stringify('production')
+    }
+  }));
+
+  // Production babel plugins
   babelPlugins.push(["transform-react-remove-prop-types", {
     "mode": "wrap",
     "ignoreFilenames": ["node_modules"]
