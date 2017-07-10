@@ -1,6 +1,6 @@
 {
   "name": "tiny-react-spa",
-  "version": "1.1.0",
+  "version": "1.2.0",
   "description": "React Single Page App generator with a more traditional approach to static assets",
   "main": "bin/tiny-react-spa.js",
   "bin": {

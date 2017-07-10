@@ -1,5 +1,13 @@
 # tiny-react-spa CHANGELOG
 
+## v1.2.0
+
+[Diff](https://github.com/airtame/airtame-gooey-react/compare/v1.1.0...v1.2.0)
+
+- Fixed output of production build (no more production warnings etc)
+- Updated all static assets to be pulled from a relative path
+- Removed the enforced port for the dev server
+
 ## v1.1.0
 
 [Diff](https://github.com/airtame/airtame-gooey-react/compare/v1.0.0...v1.1.0)
