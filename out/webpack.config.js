@@ -40,6 +40,7 @@ var config = {
     rules: [
       { // All JS/React files
         test: /\.js$/,
+        exclude: [/node-modules/],
         use: [{
           loader: 'babel-loader',
           options: {
