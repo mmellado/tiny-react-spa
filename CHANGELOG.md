@@ -1,5 +1,12 @@
 # tiny-react-spa CHANGELOG
 
+## v1.2.1
+
+[Diff](https://github.com/airtame/airtame-gooey-react/compare/v1.2.0...v1.2.1)
+
+- Updated dependencies
+- Added tracking for output dependencies
+
 ## v1.2.0
 
 [Diff](https://github.com/airtame/airtame-gooey-react/compare/v1.1.0...v1.2.0)
