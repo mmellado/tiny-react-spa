@@ -17,9 +17,7 @@ class About extends Component {
     return (
       <div className="about">
         <h2>About</h2>
-        <p>
-          This is a sample About page.
-        </p>
+        <p>This is a sample About page.</p>
       </div>
     );
   }
@@ -27,4 +25,4 @@ class About extends Component {
 
 export default connect(null, {
   setActivePage,
-})(About)
+})(About);

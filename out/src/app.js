@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Provider } from 'react-redux'
+import { Provider } from 'react-redux';
 import { render } from 'react-dom';
 
 import store from './store/store.js';
@@ -17,4 +17,4 @@ class App extends Component {
   }
 }
 
-render(<App />, document.getElementById('app'))
+render(<App />, document.getElementById('app'));

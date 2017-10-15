@@ -3,5 +3,5 @@ export default function setActivePage(title, page) {
     type: 'SET_ACTIVE_PAGE',
     title,
     page,
-  }
+  };
 }

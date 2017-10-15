@@ -32,37 +32,44 @@ class Layout extends Component {
                   </Link>
                 </li>
                 <li>
-                  <Link to="/about" className={activePage === 'about' ? 'active' : ''}>About</Link>
+                  <Link to="/about" className={activePage === 'about' ? 'active' : ''}>
+                    About
+                  </Link>
                 </li>
               </ul>
             </nav>
             <nav id="right-menu">
               <ul>
                 <li>
-                  <a href="https://github.com/mmellado/tiny-react-spa" target="_blank" rel="noopener noreferrer">
+                  <a
+                    href="https://github.com/mmellado/tiny-react-spa"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
                     GitHub
                   </a>
                 </li>
                 <li>
-                  <a href="https://github.com/mmellado/tiny-react-spa/releases" target="_blank" rel="noopener noreferrer">v0.0.0</a>
+                  <a
+                    href="https://github.com/mmellado/tiny-react-spa/releases"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    v0.0.0
+                  </a>
                 </li>
               </ul>
             </nav>
           </div>
         </div>
         <div id="content" className="layout__content">
-          <div className="page-wrapper">
-            {this.props.children}
-          </div>
+          <div className="page-wrapper">{this.props.children}</div>
         </div>
         <div id="footer" className="layout__footer">
           <div className="page-wrapper">
             <span>
-              Created with ❤ by <a
-                href="https://github.com/mmellado/"
-                rel="noopener noreferrer"
-                target="_blank"
-              >
+              Created with ❤ by{' '}
+              <a href="https://github.com/mmellado/" rel="noopener noreferrer" target="_blank">
                 @mmellado
               </a>
             </span>

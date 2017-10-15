@@ -1,6 +1,6 @@
 const initialState = {
   title: 'Home | Sample Site',
-  page: 'home'
+  page: 'home',
 };
 
 export default function navigation(state = initialState, action) {
@@ -8,9 +8,9 @@ export default function navigation(state = initialState, action) {
     case 'SET_ACTIVE_PAGE':
       return Object.assign({}, state, {
         title: action.title,
-        page: action.page
+        page: action.page,
       });
     default:
-      return state
+      return state;
   }
 }
