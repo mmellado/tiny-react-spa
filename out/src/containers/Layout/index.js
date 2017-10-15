@@ -3,7 +3,7 @@ import PropTypes from 'prop-types';
 import { connect } from 'react-redux';
 import { Link } from 'react-router-dom';
 
-class Layout extends Component {
+export class Layout extends Component {
   static propTypes = {
     navigation: PropTypes.object,
   };

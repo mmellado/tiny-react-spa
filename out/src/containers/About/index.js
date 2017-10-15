@@ -4,7 +4,7 @@ import { connect } from 'react-redux';
 
 import setActivePage from '../../actions/navigation';
 
-class About extends Component {
+export class About extends Component {
   static propTypes = {
     setActivePage: PropTypes.func,
   };
