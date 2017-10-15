@@ -19,6 +19,7 @@
     "sourceType": "module"
   },
   "rules": {
+    "import/no-named-as-default": 0,
     "react/prop-types": [2, { "ignore": ["children"] }]
   }
 }

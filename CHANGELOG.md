@@ -1,5 +1,9 @@
 # tiny-react-spa CHANGELOG
 
+## Unreleased
+
+- Ignore `import/no-named-as-default` ESLint rule
+
 ## v1.3.1
 
 [Diff](https://github.com/airtame/airtame-gooey-react/compare/v1.3.0...v1.3.1)
