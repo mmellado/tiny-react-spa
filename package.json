@@ -1,18 +1,28 @@
 {
   "name": "tiny-react-spa",
   "version": "1.2.1",
-  "description":
-    "React Single Page App generator with a more traditional approach to static assets",
+  "description": "React Single Page App generator with a more traditional approach to static assets",
   "main": "bin/tiny-react-spa.js",
   "bin": {
     "tiny-react-spa": "./bin/tiny-react-spa.js"
   },
-  "files": ["bin", "out"],
+  "files": [
+    "bin",
+    "out"
+  ],
   "repository": {
     "type": "git",
     "url": "git+https://github.com/mmellado/tiny-react-spa.git"
   },
-  "keywords": ["react", "generator", "single", "page", "app", "react-router", "redux"],
+  "keywords": [
+    "react",
+    "generator",
+    "single",
+    "page",
+    "app",
+    "react-router",
+    "redux"
+  ],
   "author": "Marcos Mellado <marcos@mellados.com>",
   "license": "MIT",
   "bugs": {
@@ -40,6 +50,7 @@
     "cross-env": "^5.0.5",
     "css-loader": "^0.28.7",
     "eslint": "^4.9.0",
+    "eslint-config-prettier": "^2.6.0",
     "eslint-loader": "^1.9.0",
     "eslint-plugin-import": "^2.7.0",
     "eslint-plugin-react": "^7.4.0",

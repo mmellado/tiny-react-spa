@@ -5,12 +5,11 @@
     "es6": true,
     "jest": true
   },
-  "plugins": [
-    "react",
-    "import"
-  ],
+  "plugins": ["react", "import"],
   "extends": [
     "eslint:recommended",
+    "prettier",
+    "prettier/react",
     "plugin:react/recommended",
     "plugin:import/errors",
     "plugin:import/warnings"
@@ -19,7 +18,7 @@
   "parserOptions": {
     "sourceType": "module"
   },
-  "rules":{
-   "react/prop-types": [2, { "ignore": ["children"] }]
+  "rules": {
+    "react/prop-types": [2, { "ignore": ["children"] }]
   }
 }
