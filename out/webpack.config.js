@@ -1,89 +1,104 @@
 var webpack = require('webpack');
+var path = require('path');
 var CopyWebpackPlugin = require('copy-webpack-plugin');
 
-var isProduction = process.env.NODE_ENV === "production";
+var isProduction = process.env.NODE_ENV === 'production';
 var babelPlugins = [];
 var webpackPlugins = [
   new CopyWebpackPlugin([
     { from: './src/index.html', to: './index.html' },
-    { from: './src/static', to: './static' }
+    { from: './src/static', to: './static' },
   ]),
-  new webpack.optimize.OccurrenceOrderPlugin(true)
+  new webpack.optimize.OccurrenceOrderPlugin(true),
 ];
 
 if (isProduction) {
   // Production webpack plugins
   webpackPlugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }));
-  webpackPlugins.push(new webpack.DefinePlugin({
-    'process.env': {
-      NODE_ENV: JSON.stringify('production')
-    }
-  }));
+  webpackPlugins.push(
+    new webpack.DefinePlugin({
+      'process.env': {
+        NODE_ENV: JSON.stringify('production'),
+      },
+    })
+  );
 
   // Production babel plugins
-  babelPlugins.push(["transform-react-remove-prop-types", {
-    "mode": "wrap",
-    "ignoreFilenames": ["node_modules"]
-  }]);
+  babelPlugins.push([
+    'transform-react-remove-prop-types',
+    {
+      mode: 'wrap',
+      ignoreFilenames: ['node_modules'],
+    },
+  ]);
+} else {
+  webpackPlugins.push(new webpack.HotModuleReplacementPlugin());
 }
-
 
 var config = {
   entry: {
-    app: './src/app.js'
+    app: './src/app.js',
   },
   output: {
-    path: __dirname + '/dist',
-    filename: 'bundle.js'
+    path: path.join(__dirname, 'dist'),
+    filename: 'bundle.js',
   },
   module: {
     rules: [
-      { // All JS/React files
+      {
+        // All JS/React files
         test: /\.js$/,
         exclude: [/node-modules/],
-        use: [{
-          loader: 'babel-loader',
-          options: {
-            presets: ['es2015', 'react', 'stage-1'],
-            plugins: babelPlugins
-          }
-        }]
+        use: [
+          {
+            loader: 'babel-loader',
+            options: {
+              presets: ['env', 'react', 'stage-1'],
+              plugins: babelPlugins,
+            },
+          },
+        ],
       },
-      { // On Runtime ESLint
-        enforce: "pre",
+      {
+        // On Runtime ESLint
+        enforce: 'pre',
         test: /\.js$/,
         exclude: [/node_modules/, /dist/],
-        loader: "eslint-loader",
+        loader: 'eslint-loader',
         options: {
           emitWarning: true,
-        }
+        },
       },
-      { // SCSS Compilation
+      {
+        // SCSS Compilation
         test: /\.(sass|scss)$/,
         use: [
-          'style-loader',
-          'css-loader',
-          'sass-loader'
-        ]
+          { loader: 'style-loader' },
+          { loader: 'css-loader', options: { url: false } },
+          { loader: 'sass-loader' },
+        ],
       },
-      { // JSON loader
+      {
+        // JSON loader
         test: /\.json$/,
-        loader: "json-loader"  //JSON loader
+        loader: 'json-loader', //JSON loader
       },
-      {// Fonts
-        test: /\.(eot|svg|ttf|woff|woff2)$/,
-        loader: 'url-loader'
-      },
-    ]
+    ],
   },
   plugins: webpackPlugins,
-  devtool: "eval-source-map", // Default development sourcemap
+  devtool: 'eval-source-map', // Default development sourcemap
+  devServer: {
+    contentBase: path.join(__dirname, 'dist'),
+    historyApiFallback: true,
+    hot: true,
+    inline: true,
+    open: true,
+  },
 };
 
 // Change sourcemap if production
-if (process.env.NODE_ENV === "production") {
-  config.devtool = "source-map";
+if (process.env.NODE_ENV === 'production') {
+  config.devtool = 'source-map';
 }
-
 
 module.exports = config;

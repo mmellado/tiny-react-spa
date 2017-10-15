@@ -18,8 +18,7 @@ var packageJSON = {
   devDependencies: {},
   scripts: {
     clean: 'rimraf dist',
-    start:
-      'npm run clean && webpack && cross-env NODE_ENV=development webpack-dev-server --hot --inline --open --content-base dist',
+    start: 'npm run clean && webpack && cross-env NODE_ENV=development webpack-dev-server',
     build: 'npm run clean && cross-env NODE_ENV=production webpack',
     prettier:
       "prettier --print-width 100 --trailing-comma es5 --single-quote true --write './**/*.{js,jsx}'",
