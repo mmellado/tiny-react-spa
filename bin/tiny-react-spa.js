@@ -101,7 +101,7 @@ if (!args['project-name']) {
 
                 console.log('The project ' + PROJECT_NAME + ' has been created');
                 console.log(
-                  'Install the dependencies and get going by running the following command:'
+                  'Install the dependencies and get started by running the following command:'
                 );
                 console.log('cd ' + PROJECT_NAME + ' && npm install && npm start');
               }
