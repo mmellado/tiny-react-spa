@@ -1,6 +1,12 @@
 # tiny-react-spa CHANGELOG
 
-## v1.2.1
+## v1.3.1
+
+[Diff](https://github.com/airtame/airtame-gooey-react/compare/v1.3.0...v1.3.1)
+
+- Converted `peerDependencies` to `devDependencies`
+
+## v1.3.0
 
 [Diff](https://github.com/airtame/airtame-gooey-react/compare/v1.2.1...v1.3.0)
 

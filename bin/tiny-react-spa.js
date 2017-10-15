@@ -5,7 +5,7 @@ var ncp = require('ncp');
 var ArgumentParser = require('argparse').ArgumentParser;
 var projectPackage = require('../package.json');
 var SCRIPT_ROOT = __dirname + '/..';
-var DEV_DEPENDENCIES = projectPackage.peerDependencies;
+var DEV_DEPENDENCIES = projectPackage.devDependencies;
 var SCRIPT_VERSION = projectPackage.version;
 
 var packageJSON = {
@@ -15,7 +15,7 @@ var packageJSON = {
   repository: '',
   license: 'MIT',
   main: 'src/app.js',
-  devDependencies: {},
+  devDependencies: DEV_DEPENDENCIES,
   scripts: {
     clean: 'rimraf dist',
     start: 'npm run clean && webpack && cross-env NODE_ENV=development webpack-dev-server',
@@ -26,8 +26,6 @@ var packageJSON = {
     test: 'npm run lint && jest',
   },
 };
-
-packageJSON.devDependencies = DEV_DEPENDENCIES;
 
 var parser = new ArgumentParser({
   version: SCRIPT_VERSION,

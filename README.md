@@ -1,7 +1,7 @@
 # Tiny React SPA
 [![npm](https://img.shields.io/npm/v/tiny-react-spa.svg)](https://www.npmjs.com/package/tiny-react-spa)
 [![David](https://img.shields.io/david/mmellado/tiny-react-spa.svg)](https://david-dm.org/mmellado/tiny-react-spa)
-[![David](https://img.shields.io/david/peer/mmellado/tiny-react-spa.svg)](https://david-dm.org/mmellado/tiny-react-spa?type=peer)
+[![David](https://img.shields.io/david/dev/mmellado/tiny-react-spa.svg)](https://david-dm.org/mmellado/tiny-react-spa?type=dev)
 
 Tiny React SPA is a Single Page App generator which helps you get started with React, Redux and React Router. Unilke many other Single Page App generators, this one takes a more traditional approach to CSS and asset management to make the transition into these technologies a little less intimidating to people trying it for the first time.
 
