@@ -2,11 +2,15 @@
 
 ## Unreleased
 
+## v1.3.2
+
+[Diff](https://github.com/mmellado/tiny-react-spa/compare/v1.3.1...v1.3.2)
+
 * Ignore `import/no-named-as-default` ESLint rule
 * Update dependencies to latest
 * Add prettierrc file
 * Fix node_modules typo in webpack config
-* Fux CHANGELOG urls
+* Fix CHANGELOG urls
 * Remove containers folder in favor of components
 
 ## v1.3.1
