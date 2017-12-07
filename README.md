@@ -1,4 +1,6 @@
 # Tiny React SPA
+
+[![Greenkeeper badge](https://badges.greenkeeper.io/mmellado/tiny-react-spa.svg)](https://greenkeeper.io/)
 [![npm](https://img.shields.io/npm/v/tiny-react-spa.svg)](https://www.npmjs.com/package/tiny-react-spa)
 [![David](https://img.shields.io/david/mmellado/tiny-react-spa.svg)](https://david-dm.org/mmellado/tiny-react-spa)
 [![David](https://img.shields.io/david/dev/mmellado/tiny-react-spa.svg)](https://david-dm.org/mmellado/tiny-react-spa?type=dev)
