@@ -14,7 +14,9 @@ var webpackPlugins = [
 
 if (isProduction) {
   // Production webpack plugins
-  webpackPlugins.push(new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } }));
+  webpackPlugins.push(
+    new webpack.optimize.UglifyJsPlugin({ compress: { warnings: false } })
+  );
   webpackPlugins.push(
     new webpack.DefinePlugin({
       'process.env': {
@@ -48,7 +50,7 @@ var config = {
       {
         // All JS/React files
         test: /\.js$/,
-        exclude: [/node-modules/],
+        exclude: [/node_modules/],
         use: [
           {
             loader: 'babel-loader',
