@@ -7,6 +7,7 @@
 * Add prettierrc file
 * Fix node_modules typo in webpack config
 * Fux CHANGELOG urls
+* Remove containers folder in favor of components
 
 ## v1.3.1
 

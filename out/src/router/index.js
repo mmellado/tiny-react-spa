@@ -1,9 +1,9 @@
 import React, { Component } from 'react';
 import { BrowserRouter, Switch, Route } from 'react-router-dom';
 
-import Layout from '../containers/Layout';
-import Home from '../containers/Home';
-import About from '../containers/About';
+import Layout from '../components/Layout';
+import Home from '../components/Home';
+import About from '../components/About';
 
 export default class Router extends Component {
   render() {
